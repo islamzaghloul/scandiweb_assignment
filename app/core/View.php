@@ -22,15 +22,12 @@ class View
     {
 
         $file = VIEWS.$this->view_file.'.php';
-        if(file_exists($file))
-        {
+        if(file_exists($file)) {
             ob_start();
             extract($this->view_data);
             require_once($file);
             ob_end_flush();
-        }
-        else
-        {
+        } else {
             echo "this file : " .$this->view_file ."dose not exist ";
         }
     }

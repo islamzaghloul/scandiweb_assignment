@@ -19,15 +19,17 @@ class App
 
         $request = $_SERVER['REQUEST_URI'];
         $controller =new ProductController();
-        if($request =='/add-product')
-        {return  $controller->add();}
-        elseif ($request =='/delete')
-        {return  $controller->delete();}
-        elseif ($request =='/')
-        {return $controller->index();}
-        elseif ($request =='/insert')
-        {return  $controller->insert();}
-        else{http_response_code(404);
-            return new View('error');}
+        if($request =='/add-product') {
+            return  $controller->add();
+        } elseif ($request =='/delete') {
+            return  $controller->delete();
+        } elseif ($request =='/') {
+            return $controller->index();
+        } elseif ($request =='/insert') {
+            return  $controller->insert();
+        } else{
+            http_response_code(404);
+            return new View('error');
+        }
     }
 }

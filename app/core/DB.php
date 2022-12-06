@@ -14,8 +14,9 @@ class DB
     public function connect()
     {
         $this->db = new MysqliDb (DBHOST, DBUSER, DBPASSWORD, DBNAME);
-        if (!$this->db)
+        if (!$this->db){
             die("Connection Error : ");
+        }
         return $this->db;
     }
 

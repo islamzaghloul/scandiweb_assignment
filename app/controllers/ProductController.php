@@ -27,8 +27,7 @@ class ProductController extends Controller
         $request = $_REQUEST;
         $product = $this->Model(ucfirst($request['productType']));
         $new_request = $product->add($request);
-        if($new_request == false)
-        {
+        if($new_request == false) {
             $data['error'] = "not added check sku value must be unique";
             $data['products'] = $this->conn->getAllProducts();
             $this->view('products/index',$data);
@@ -39,14 +38,11 @@ class ProductController extends Controller
 
     public function delete()
     {
-        if(count($_REQUEST)<1)
-        {
+        if(count($_REQUEST)<1) {
             $data['error'] = "select at least one record";
             $data['products'] = $this->conn->getAllProducts();
             $this->view('products/index',$data);
-        }
-        else
-        {
+        } else {
             $model = new model();
             $model->destroy($_REQUEST);
             $control = new Controller();
